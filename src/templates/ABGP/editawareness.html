@@ -1,0 +1,40 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'adminindex.html'%}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="editawareness1#about">
+  <table class="table" width="200" border="1">
+    <tr>
+      <th scope="row">Details</th>
+      <td><label>
+        <input type="text" name="textfield" value="{{val['Details']}}" required  />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Venue</th>
+      <td> <input type="text" name="textfield2" value="{{val['Venue']}}" required /></td>
+    </tr>
+      <tr>
+      <th scope="row">Time</th>
+      <td> <input type="time" name="textfield3"value="{{val['Time']}}" required/></td>
+    </tr>
+     <tr>
+      <th scope="row">Date</th>
+      <td> <input type="date" name="textfield4" value="{{val['Date']}}" required/></td>
+    </tr>
+    <tr align="center">
+      <th colspan="2" scope="row"><label>
+        <input type="submit" name="Submit" value="Edit" class="btn btn-success" />
+      </label></th>
+    </tr>
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

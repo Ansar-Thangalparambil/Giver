@@ -1,0 +1,55 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'bloodbankindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-stripe table-hover"  width="376" border="1">
+   <tr class="table-dark">
+      <th width="40" scope="row">Name</th>
+      <th width="41">Blood group </th>
+      <th width="51">Address</th>
+      <th width="48">Contact</th>
+      <th width="25">Unit</th>
+      <th width="37">Status</th>
+      <th width="29">Date</th>
+      <th width="53">&nbsp;</th>
+    </tr>
+    {%for i in val %}
+    <tr>
+      <td height="71" scope="row">{{i['Name']}}</td>
+      <td>{{i['Bloodgroup']}}</td>
+      <td>{{i['Place']}}<br>{{i['Post']}}<br>{{i['Pin']}}</td>
+      <td>{{i['Phone']}}</td>
+      <td>{{i['units']}}</td>
+      <td>&nbsp;{{i['status']}}</td>
+      <td>&nbsp;{{i['Date']}}</td>
+
+
+      <td>
+
+          {% if i['status']=="accepted" or  i['status']=="completed"  %}
+
+          <div align="center"><a href="response?id={{i['reqid']}}#about"> View response</a></div>
+
+          {% elif i['status']=="rejected" %} Rejected
+
+          {% else %}
+
+          <div align="center"><a href="accept_blood_request?id={{i['reqid']}}#about"> Accept </a></div>
+          <div align="center"><a href="reject_blood_request?id={{i['reqid']}}#about"> Reject</a></div>
+
+          {% endif %}
+
+      </td>
+    </tr>
+        {% endfor %}
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

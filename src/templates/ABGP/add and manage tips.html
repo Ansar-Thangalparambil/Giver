@@ -1,0 +1,39 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'bloodbankindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="add#about">
+    <table class="table table-stripe table-hover"  width="376" border="1">
+        <tr class="table-dark">
+      <th scope="row">Details</th>
+      <th>Tips</th>
+      <th>Date</th>
+      <th><p>&nbsp;</p>      </th>
+    </tr>
+    {%for i in val%}
+    <tr>
+      <td scope="row">{{i['Details']}}</td>
+       <td scope="row">{{i['Tip']}}</td>
+       <td scope="row">{{i['Date']}}</td>
+
+
+      <td><p><a href="edittips?id={{i['T_id']}}#about">Edit</a></p>
+      <p><a href="deletetips?id={{i['T_id']}}">Delete</a></p></td>
+    </tr>
+      {% endfor %}
+    <tr align="center">
+      <th colspan="5" scope="row"><label>
+        <input type="submit" name="Submit" value="Add" class="btn btn-success"  />
+      </label></th>
+    </tr>
+  </table>
+  <label></label>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

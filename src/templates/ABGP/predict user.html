@@ -1,0 +1,46 @@
+{% extends 'bloodbankindex.html' %}
+{% block body %}
+
+<body>      <form id="form1" name="form1" method="post" action="DonationProb">
+
+<table width="208" border="1" class="table table-stripe table-hover" >
+  <tr>
+    <th colspan="4" scope="row"><div align="left">Bloodgroup
+        <label></label>
+
+        <select name="select">
+          <option>A+ve</option>
+          <option>A-ve</option>
+            <option>AB+ve</option>
+            <option>AB-ve</option>
+            <option>B+ve</option>
+            <option>B-ve</option>
+            <option>O+ve</option>
+            <option>O-ve</option>
+
+        </select>
+        <label>
+        <input type="submit" name="Submit" value="Search" />
+        </label>
+    </div></th>
+  </tr>
+  <tr>
+    <th width="40" scope="row">Name</th>
+    <td width="51">Address</td>
+    <td width="48">Contact</td>
+  </tr>
+
+    {% for i in val %}
+
+    <tr>
+    <th>{{i['Name']}}</th>
+    <td>{{i['Place']}}, {{i['Post']}}</td>
+    <td>{{i['Phone']}}</td>
+  </tr>
+
+    {% endfor %}
+
+</table>      </form>
+
+</body>
+{% endblock %}

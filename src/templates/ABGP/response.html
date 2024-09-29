@@ -1,0 +1,43 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'bloodbankindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+<table class="table table-stripe table-hover"  width="376" border="1">
+        <tr class="table-dark">
+    <tr>
+      <th width="51" scope="row">Name</th>
+      <th width="57">Gender</th>
+      <th width="15">Contact</th>
+      <th width="15">&nbsp;Status</th>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td scope="row">{{i['Name']}}</td>
+      <td>{{i['Gender']}}</td>
+      <td>{{i['Phone']}}</td>
+      <td>
+
+        {% if i['status'] == "accepted" %} Accepted
+
+        {% elif i['status'] == "rejected" %} Rejected
+
+        {% else %}
+
+        <p><a href="acceptrequest?id={{i['rid']}}">Accept</a></p>
+      <p><a href="rejectrequest?id={{i['rid']}}">Reject</a></p>
+      {% endif %}
+
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}
